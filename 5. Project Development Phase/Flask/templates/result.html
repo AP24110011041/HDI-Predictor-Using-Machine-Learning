@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDI Prediction Result</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌍 Human Development Index Predictor</h1>
+
+    <div class="result">
+
+        <h2>Prediction Result</h2>
+
+        <h3>Predicted HDI</h3>
+        <p>{{ prediction }}</p>
+
+        <h3>Development Category</h3>
+
+        <p class="
+        {% if category == 'Low Human Development' %}
+            low
+        {% elif category == 'Medium Human Development' %}
+            medium
+        {% elif category == 'High Human Development' %}
+            high
+        {% else %}
+            veryhigh
+        {% endif %}
+        ">
+            {{ category }}
+        </p>
+
+    </div>
+
+    <br>
+
+    <a href="/" style="text-decoration:none;">
+        <button type="button">
+            🔄 Predict Again
+        </button>
+    </a>
+
+    <footer>
+        Developed using <strong>Python | Flask | Scikit-learn | Machine Learning</strong>
+    </footer>
+
+</div>
+
+</body>
+
+</html>

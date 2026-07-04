@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Development Index Predictor</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🌍 Human Development Index Predictor</h1>
+
+    <form action="/" method="POST">
+
+        <label for="life">Life Expectancy at Birth (2021)</label>
+
+        <input
+            id="life"
+            type="number"
+            step="0.1"
+            min="40"
+            max="90"
+            placeholder="Example: 78.5"
+            name="Life Expectancy at Birth (2021)"
+            required>
+
+        <label for="school">Mean Years of Schooling (2021)</label>
+
+        <input
+            id="school"
+            type="number"
+            step="0.1"
+            min="0"
+            max="20"
+            placeholder="Example: 12"
+            name="Mean Years of Schooling (2021)"
+            required>
+
+        <label for="income">Gross National Income Per Capita (2021)</label>
+
+        <input
+            id="income"
+            type="number"
+            step="0.01"
+            min="100"
+            placeholder="Example: 15000"
+            name="Gross National Income Per Capita (2021)"
+            required>
+
+        <button type="submit">
+            Predict HDI
+        </button>
+
+    </form>
+
+    {% if prediction is not none %}
+
+    <div class="result">
+
+        <h2>Prediction Result</h2>
+
+        <h3>Predicted HDI</h3>
+
+        <p>{{ prediction }}</p>
+
+        <h3>Development Category</h3>
+
+        <p class="
+        {% if category == 'Low Human Development' %}
+            low
+        {% elif category == 'Medium Human Development' %}
+            medium
+        {% elif category == 'High Human Development' %}
+            high
+        {% else %}
+            veryhigh
+        {% endif %}
+        ">
+            {{ category }}
+        </p>
+
+    </div>
+
+    {% endif %}
+
+    <footer>
+        Developed using <strong>Python | Flask | Scikit-learn | Machine Learning</strong>
+    </footer>
+
+</div>
+
+</body>
+
+</html>
