@@ -1,5 +1,7 @@
+git commit -m "Complete HDI Predictor project with SmartBridge documentation"
 Flask
 pandas
 numpy
 scikit-learn
 joblib
+gunicorn
